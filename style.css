@@ -1,16 +1,20 @@
 /* nejsme vcerejsi, pouzivame moderni box model */
 html { box-sizing: border-box; }
-*, :after, :before { box-sizing: inherit; }
+*, :after, :before { box-sizing: inherit; margin: 0; padding: 0;}
 
 body {
 	margin: 0;
 	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 14px;
+	color: #ffffff;
+	text-shadow: 1px 2px 3px #383838;
 }
 
 .paticka {
 	text-align: center;
 	font-size: 14px;
 	color: silver;
+	text-shadow: none;
 }
 
 .paticka a {
@@ -33,3 +37,132 @@ Nastav je receptům jako obrázky na pozadí (tj. nepřidávej je jako <img> do 
 Na rozložení prvků NEPOUŽÍVEJ absolutní pozicování, ale pouze flexboxy.
 Flexboxy mohou být vnořené do sebe, klidně několikrát.
 */
+
+/* mobil */
+.recept{
+	display: flex;
+	flex-wrap: wrap;
+}
+.hlavni{
+	background-image: url(images/salat.jpg);
+	background-size: cover;
+	background-position: center;
+	min-height: 200px;
+}
+.up{
+	flex: 1 1 100%;
+	display: flex;
+	justify-content: space-between;
+}
+.typ{
+	padding: 10px;
+}
+.komentare{
+	padding: 10px;
+}
+.down{
+	align-self: flex-end;
+}
+h2{
+	padding: 10px;
+	font-family: Raleway;
+	font-size: 28px;
+	font-weight: 800;
+}
+.maly1{
+	background-image: url(images/chlebicek.jpg);
+	background-size: cover;
+	background-position: center;
+	min-height: 90px;
+}
+h3{
+	padding: 10px;
+	font-family: Raleway;
+	font-size: 18px;
+	font-weight: 800;
+}
+.maly2{
+	background-image: url(images/tacos.jpg);
+	background-size: cover;
+	background-position: center;
+	min-height: 90px;
+}
+.maly3{
+	background-image: url(images/cizrna.jpg);
+	background-size: cover;
+	background-position: center;
+	min-height: 90px;
+}
+.maly4{
+	background-image: url(images/burger.jpg);
+	background-size: cover;
+	background-position: center;
+	min-height: 90px;
+}
+
+/* tablet */
+
+@media screen and (min-width: 480px){
+	/*.kontejner{
+		display: flex;
+		flex-wrap: wrap;
+	}*/
+	.kontejner--prava{
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.hlavni{
+		min-height: 250px;
+	}
+	h2{
+		font-size: 36px;
+		padding: 20px;
+	}
+	.maly1, .maly2, .maly3, .maly4{
+		flex: 0 0 calc((100% - 1px)/2);
+		min-height: 150px;
+		margin-top: 1px;
+	}
+	.maly1, .maly3{
+		margin-right: 1px;
+	}
+	h3{
+		font-size: 22px;
+		padding: 20px;
+	}
+	.typ{
+		padding: 20px;
+	}
+	.komentare{
+		padding: 20px;
+	}
+}
+
+/* PC */
+@media screen and (min-width: 860px){
+	.kontejner{
+		display: flex;
+	}
+	.hlavni{
+		min-height: 400px;
+	}
+	h2{
+		font-size: 48px;
+	}
+	h3{
+		font-size: 28px;
+	}
+	.kontejner--leva{
+		flex: 1 1 calc((50% - 1px) / 2);
+		margin-right: 1px;
+	}
+	.kontejner--prava{
+		flex: 1 0 45%;
+	}
+	.maly1, .maly2, .maly3, .maly4{
+		min-height: 200px;
+	}
+	.maly1, .maly2{
+		margin-top: 0;
+	}
+}
